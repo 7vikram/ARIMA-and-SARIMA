@@ -1,19 +1,45 @@
 
-# **Super Store Sales Forecasting Project**
+# **Sales Forecasting Project**
 
-This repository contains a time series forecasting project for sales data from a Super Store dataset. The project leverages ARIMA modeling to forecast sales across three specific variations and evaluates their accuracy using metrics like MAE and RMSE.
+This repository contains time series forecasting projects for two datasets: **Champagner Sales** and **Super Store Sales**. It leverages ARIMA and SARIMA models for the Champagner dataset and ARIMA modeling for the Super Store dataset. The projects evaluate forecast accuracy using metrics like MAE and RMSE.
 
 ---
 
 ## **📄 Project Overview**
 
-### **🎯 Objective**
-The primary goal is to preprocess, normalize, and forecast sales data for the following scenarios:
-1. **Overall Sales** - Forecasting total sales for all regions and categories.
-2. **South Region - Technology Category** - Forecasting sales specific to the "Home Office" segment within the "South" region for the "Technology" category.
-3. **West Region - Office Supplies Category** - Forecasting sales specific to the "Consumer" segment within the "West" region for the "Office Supplies" category.
+### **🎯 Objectives**
+1. **Champagner Sales**  
+   - Preprocess and forecast Champagner sales for the next 12 months using both ARIMA and SARIMA models.  
+   - Compare the performance of ARIMA and SARIMA models based on accuracy metrics.  
+2. **Super Store Sales**  
+   - Forecast sales across three specific scenarios using ARIMA models:  
+     - **Overall Sales**  
+     - **South Region - Technology Category**  
+     - **West Region - Office Supplies Category**  
 
-### **🛠 Methodology**
+---
+
+## **🛠 Methodology**
+
+### **Champagner Sales**
+1. **Data Preprocessing**  
+   - Converted sales data to a time series indexed by date.  
+   - Performed stationarity tests using the Augmented Dickey-Fuller (ADF) test.  
+   - Differenced the data if needed for stationarity.  
+
+2. **Forecasting Models**  
+   - **ARIMA Model**: Fitted and forecasted using ARIMA with optimal parameters.  
+   - **SARIMA Model**: Used Seasonal ARIMA to account for seasonality.  
+
+3. **Evaluation**  
+   - Compared MAE and RMSE between ARIMA and SARIMA models.  
+
+4. **Visualization**  
+   - Plotted historical sales and forecasts for both models.
+
+---
+
+### **Super Store Sales**
 1. **Data Preprocessing**  
    - Converted `Order Date` to datetime format and set it as the index.  
    - Sorted data chronologically and handled missing values.  
@@ -34,21 +60,24 @@ The primary goal is to preprocess, normalize, and forecast sales data for the fo
    - Calculated **Mean Absolute Error (MAE)** and **Root Mean Squared Error (RMSE)** to evaluate forecast accuracy.  
    - Identified the variation with the lowest errors.
 
+6. **Visualization**  
+   - Historical sales trends and forecasts were plotted for each variation.
+
 ---
 
 ## **📊 Results**
-- **Accuracy Metrics:**  
-   - Overall Sales  
-   - South - Technology  
-   - West - Office Supplies  
+### **Champagner Sales**  
+- SARIMA outperformed ARIMA in capturing seasonality for the Champagner dataset.  
+- Visualizations compared the performance of ARIMA and SARIMA models.  
+
+### **Super Store Sales**  
+- Accuracy Metrics (MAE and RMSE) were computed for each variation:  
+   - **Overall Sales**  
+   - **South Region - Technology Category**  
+   - **West Region - Office Supplies Category**  
 
 - **Best-Performing Variation:**  
    - Based on MAE and RMSE, the variation with the lowest error is highlighted in the script output.
-
----
-
-## **📈 Visualizations**
-- Historical sales trends and forecasts are plotted for each variation using Matplotlib for clear interpretability.
 
 ---
 
@@ -62,9 +91,9 @@ The primary goal is to preprocess, normalize, and forecast sales data for the fo
 ---
 
 ## **🚀 Usage**
-1. Clone this repository and ensure the dataset (`super_store.csv`) is in the same directory as the script.  
-2. Run the Python script using Jupyter Notebook or any Python IDE.  
-3. Results, including metrics and visualizations, will be generated for all three variations.
+1. Clone this repository and ensure the datasets (`champagner.csv` and `super_store.csv`) are in the same directory as the scripts.  
+2. Run the respective Python scripts (`champagner_forecasting.ipynb` and `super_store_forecasting.ipynb`) using Jupyter Notebook or any Python IDE.  
+3. Results, including metrics and visualizations, will be generated for both datasets.
 
 ---
 
